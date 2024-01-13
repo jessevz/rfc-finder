@@ -14,6 +14,11 @@ class RFC:
 
 def parse_rfc_webpage(data, start, db):
     index = data.find(start)
+
+    if index < 0:
+        print("RFC database already up to date!")
+        return
+
     parsed_webpage =  data[index:].split("\n\n")
 
     for rfc in parsed_webpage:

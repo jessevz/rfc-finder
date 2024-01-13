@@ -53,7 +53,7 @@ def update():
     if cur_hash == new_hash: #Update is not needed
         print("RFC database already up to date!")
     else: #update database
-        latest_rfc_number = str(db.get_latest_RFC_number())
+        latest_rfc_number = str((db.get_latest_RFC_number() + 1)) + " "
         parse_rfc_webpage(data.decode(), latest_rfc_number, db)
         db.insert_config_value("hash", new_hash)
 
